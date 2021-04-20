@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "grpc-microservice/cmd";
+package cmd;
+
+message User {
+    int32   UserID=1;
+    string	Name=2;
+    string  Email=3;
+    string	Password=4; 
+}
+
+message Request{
+    string name=1;
+}
+
+service UserService{
+    rpc GetUser (Request) returns (User);
+    rpc GetUsers (Request) returns (stream User);
+}
+
+
